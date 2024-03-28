@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>KALKULATOR</title>
+<style> 
+    input[type="button"] { 
+        width: 50px; 
+        height: 50px; 
+        color: black;
+    }
+    #button-1 {color: aliceblue;}
+    #button-2 {color: aliceblue;}
+    #button-3 {color: aliceblue;}
+    #button-equals {color: aliceblue;}
+    #button-1 { background-color: red; } 
+    #button-2 { background-color: rgb(0, 255, 0); } 
+    #button-3 { background-color: rgb(0, 0, 255); } 
+    #button-equals { background-color: gray; }
+    
+    #kalkulator-container {
+        width: 220px;
+        margin: 0 auto;
+        padding: 10px;
+        text-align: center;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    }
+</style>
+<script>
+function addToResult(value) {
+    document.getElementById('result').value += value;
+}
+function clearResult() {
+    var confirmation = confirm("Apakah Anda yakin ingin menghapus?");
+    if (confirmation) {
+        document.getElementById('result').value ="";
+    }
+}
+function calculateResult() {
+    var result = eval(document.getElementById('result').value); 
+    document.getElementById('result').value = result;
+}
+</script>
+</head>
+<body>
+<div id="kalkulator-container">
+    <h2>KALKULATOR</h2>
+    <div>
+        <input type="text" id="result" disabled><br><br>
+        <input type="button" value="7" onclick="addToResult(7)">
+        <input type="button" value="8" onclick="addToResult(8)">
+        <input type="button" value="9" onclick="addToResult(9)">
+        <input type="button" value="*" onclick="addToResult('*')">
+        <br>
+        <br>
+        <input type="button" value="4" onclick="addToResult(4)">
+        <input type="button" value="5" onclick="addToResult(5)"> 
+        <input type="button" value="6" onclick="addToResult(6)">
+        <input type="button" value="-" onclick="addToResult('-')">
+        <br>
+        <br>
+        <input type="button" id="button-1" value="1" onclick="addToResult(1)">
+        <input type="button" id="button-2" value="2" onclick="addToResult(2)"> 
+        <input type="button" id="button-3" value="3" onclick="addToResult(3)">
+        <input type="button" value="+" onclick="addToResult('+')">
+        <br>
+        <br>
+        <input type="button" value="C" onclick="clearResult()">
+        <input type="button" value="0" onclick="addToResult(0)">
+        <input type="button" id="button-equals" value="=" onclick="calculateResult()">
+        <input type="button" value="/" onclick="addToResult('/')">
+    </div>
+</div>
+</body>
+</html>
